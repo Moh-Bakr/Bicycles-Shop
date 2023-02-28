@@ -12,18 +12,6 @@ class BicyclesController < ApplicationController
     render json: @bicycle
   end
 
-  def search
-    params[:search] = params[:search].gsub(/[^0-9A-Za-z]/, '')
-    @bicycles = Bicycle.where("name LIKE ? or style LIKE ? or price >= ?",
-                              "%#{params[:search]}%", "%#{params[:search]}%", params[:search]
-    )
-    if @bicycles
-      render json: @bicycles
-    else
-      response = { message: 'cannot find bicycle' }
-      render json: response, status: :bad_request
-    end
-  end
 
   def create
     @bicycle = Bicycle.new(bicycle_params)
@@ -47,6 +35,19 @@ class BicyclesController < ApplicationController
     @bicycle.destroy
   end
 
+  # def search
+  #   params[:search] = params[:search].gsub(/[^0-9A-Za-z]/, '')
+  #   @bicycles = Bicycle.where("name LIKE ? or style LIKE ? or price >= ?",
+  #                             "%#{params[:search]}%", "%#{params[:search]}%", params[:search]
+  #   )
+  #   if @bicycles
+  #     render json: @bicycles
+  #   else
+  #     response = { message: 'cannot find bicycle' }
+  #     render json: response, status: :bad_request
+  #   end
+  # end
+  
   private
 
   def set_bicycle
