@@ -128,17 +128,17 @@ export default function UpdateForm(props: any) {
 							setStyle(e.target.value);
 						}}
 					/>
-					<Input
+					<TextField
 						required
 						id="last_name"
 						value={price}
 						placeholder="Price"
-						slotProps={{
-							input: {
-								min: 1,
-								step: 1,
-							},
-						}}
+						// slotProps={{
+						// 	input: {
+						// 		min: 1,
+						// 		step: 1,
+						// 	},
+						// }}
 						type="number"
 						sx={{ width: { xs: "100%", md: "50%" } }}
 						onChange={(e) => {

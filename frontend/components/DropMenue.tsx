@@ -81,16 +81,16 @@ export default function MultipleSelectChip(props:any) {
 						setStyle(e.target.value);
 					}}
 				/>
-				<Input
+				<TextField
 					required
 					value={price}
 					placeholder="Price"
-					slotProps={{
-						input: {
-							min: 1,
-							step: 1,
-						},
-					}}
+					// slotProps={{
+					// 	input: {
+					// 		min: 1,
+					// 		step: 1,
+					// 	},
+					// }}
 					type="number"
 		
 					onChange={(e:any) => {
@@ -98,7 +98,7 @@ export default function MultipleSelectChip(props:any) {
 					}}
 				/>
 			</Box>
-			<Button onClick={handleFilter} variant="contained" className="mt-[15px] bg-sky-800">Filter</Button>
+			<Button onClick={handleFilter} variant="contained" className="mt-[15px] bg-sky-800 m-auto">Filter</Button>
 		</div>
 	);
 }
